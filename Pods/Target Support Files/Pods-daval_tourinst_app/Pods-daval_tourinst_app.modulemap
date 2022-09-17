@@ -1,0 +1,6 @@
+framework module Pods_daval_tourinst_app {
+  umbrella header "Pods-daval_tourinst_app-umbrella.h"
+
+  export *
+  module * { export * }
+}
