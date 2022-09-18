@@ -17,9 +17,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginEmailOutlet: UITextField!
     @IBOutlet weak var loginPasswordOutlet: UITextField!
+    @IBOutlet weak var pbLoginOutlet: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pbLoginOutlet.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -29,13 +31,19 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginToMapAction(_ sender: Any) {
+        pbLoginOutlet.isHidden = false
+        pbLoginOutlet.startAnimating()
         if let email = loginEmailOutlet.text , let password = loginPasswordOutlet.text {
             Auth.auth().signIn(withEmail: email, password: password){
             (result, error) in
             if let result = result, error == nil {
+                self.pbLoginOutlet.isHidden = true
+                self.pbLoginOutlet.stopAnimating()
                 self.performSegue(withIdentifier: "loginToMap", sender: nil)
             }else {
-                let alertController = UIAlertController(title: "Error", message: "Se ha producido un error registrando el usuario", preferredStyle: .alert)
+                self.pbLoginOutlet.isHidden = true
+                self.pbLoginOutlet.stopAnimating()
+                let alertController = UIAlertController(title: "Error", message: "An error has ocurred during login process, please try again!", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                 self.present(alertController, animated: true, completion: nil)
             }

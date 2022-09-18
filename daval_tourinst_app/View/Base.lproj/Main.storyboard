@@ -148,6 +148,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eRF-iG-3px"/>
                     <connections>
+                        <outlet property="pbRegisterOutlet" destination="tnk-as-gHX" id="936-fO-xUQ"/>
                         <outlet property="registerEmailOutlet" destination="Ark-Ty-eHJ" id="srz-E5-dmr"/>
                         <outlet property="registerPasswordOutlet" destination="Hz7-eJ-Olw" id="3D9-tB-l1m"/>
                         <segue destination="Ofz-AX-nQm" kind="show" identifier="registerToMap" id="2en-ad-w0i"/>
@@ -418,6 +419,7 @@
                     <connections>
                         <outlet property="loginEmailOutlet" destination="ssf-OE-zN5" id="uPv-gZ-9U0"/>
                         <outlet property="loginPasswordOutlet" destination="G97-zO-Rqk" id="gON-CW-v8k"/>
+                        <outlet property="pbLoginOutlet" destination="sJh-Ac-D6m" id="DNI-tK-VGB"/>
                         <segue destination="zjN-OV-1zL" kind="show" identifier="loginToRegister" id="nWL-xp-OF5"/>
                         <segue destination="Ofz-AX-nQm" kind="show" identifier="loginToMap" id="pQS-cT-RNL"/>
                     </connections>
@@ -428,7 +430,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pQS-cT-RNL"/>
+        <segue reference="2en-ad-w0i"/>
         <segue reference="nWL-xp-OF5"/>
     </inferredMetricsTieBreakers>
     <resources>
