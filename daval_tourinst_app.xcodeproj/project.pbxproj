@@ -17,6 +17,7 @@
 		14070EC628D74BC80058DFAC /* MkCoordinateRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14070EC528D74BC80058DFAC /* MkCoordinateRegion.swift */; };
 		14070EC828D74D420058DFAC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14070EC728D74D420058DFAC /* PhotoViewController.swift */; };
 		14070ECA28D74D720058DFAC /* PhotoCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14070EC928D74D720058DFAC /* PhotoCellViewController.swift */; };
+		14070ECC28D754CE0058DFAC /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14070ECB28D754CE0058DFAC /* ViewControllerExtension.swift */; };
 		140AE60A28D563F0008C69DE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140AE60928D563F0008C69DE /* Colors.xcassets */; };
 		140AE60C28D56788008C69DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140AE60B28D56788008C69DE /* LoginViewController.swift */; };
 		140AE60E28D56805008C69DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140AE60D28D56805008C69DE /* RegisterViewController.swift */; };
@@ -24,7 +25,6 @@
 		143C8FD628D16EB40035FFB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 143C8FD528D16EB40035FFB9 /* GoogleService-Info.plist */; };
 		1456C1E028CE489B00BDE878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1DF28CE489B00BDE878 /* AppDelegate.swift */; };
 		1456C1E228CE489B00BDE878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1E128CE489B00BDE878 /* SceneDelegate.swift */; };
-		1456C1E428CE489B00BDE878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1E328CE489B00BDE878 /* ViewController.swift */; };
 		1456C1E728CE489B00BDE878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1456C1E528CE489B00BDE878 /* Main.storyboard */; };
 		1456C1EA28CE489B00BDE878 /* daval_tourinst_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1E828CE489B00BDE878 /* daval_tourinst_app.xcdatamodeld */; };
 		1456C1EC28CE489D00BDE878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1456C1EB28CE489D00BDE878 /* Assets.xcassets */; };
@@ -43,6 +43,7 @@
 		14070EC528D74BC80058DFAC /* MkCoordinateRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MkCoordinateRegion.swift; sourceTree = "<group>"; };
 		14070EC728D74D420058DFAC /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		14070EC928D74D720058DFAC /* PhotoCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewController.swift; sourceTree = "<group>"; };
+		14070ECB28D754CE0058DFAC /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		140AE60928D563F0008C69DE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		140AE60B28D56788008C69DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		140AE60D28D56805008C69DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		1456C1DC28CE489B00BDE878 /* daval_tourinst_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = daval_tourinst_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1456C1DF28CE489B00BDE878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1456C1E128CE489B00BDE878 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1456C1E328CE489B00BDE878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1456C1E628CE489B00BDE878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1456C1E928CE489B00BDE878 /* daval_tourinst_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = daval_tourinst_app.xcdatamodel; sourceTree = "<group>"; };
 		1456C1EB28CE489D00BDE878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,12 +120,12 @@
 		140AE60828D5639B008C69DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1456C1E328CE489B00BDE878 /* ViewController.swift */,
 				140AE60B28D56788008C69DE /* LoginViewController.swift */,
 				140AE60D28D56805008C69DE /* RegisterViewController.swift */,
 				140AE60F28D56967008C69DE /* MapViewController.swift */,
 				14070EC728D74D420058DFAC /* PhotoViewController.swift */,
 				14070EC928D74D720058DFAC /* PhotoCellViewController.swift */,
+				14070ECB28D754CE0058DFAC /* ViewControllerExtension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -296,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1456C1E428CE489B00BDE878 /* ViewController.swift in Sources */,
 				14070EC628D74BC80058DFAC /* MkCoordinateRegion.swift in Sources */,
 				1456C1E028CE489B00BDE878 /* AppDelegate.swift in Sources */,
 				1456C1EA28CE489B00BDE878 /* daval_tourinst_app.xcdatamodeld in Sources */,
@@ -311,6 +310,7 @@
 				14070EBD28D745F60058DFAC /* Photo.swift in Sources */,
 				140AE60C28D56788008C69DE /* LoginViewController.swift in Sources */,
 				14070EC828D74D420058DFAC /* PhotoViewController.swift in Sources */,
+				14070ECC28D754CE0058DFAC /* ViewControllerExtension.swift in Sources */,
 				1456C1E228CE489B00BDE878 /* SceneDelegate.swift in Sources */,
 				140AE61028D56967008C69DE /* MapViewController.swift in Sources */,
 			);

@@ -33,21 +33,24 @@ class LoginViewController: UIViewController {
     @IBAction func loginToMapAction(_ sender: Any) {
         pbLoginOutlet.isHidden = false
         pbLoginOutlet.startAnimating()
-        if let email = loginEmailOutlet.text , let password = loginPasswordOutlet.text {
-            Auth.auth().signIn(withEmail: email, password: password){
-            (result, error) in
-            if let result = result, error == nil {
-                self.pbLoginOutlet.isHidden = true
-                self.pbLoginOutlet.stopAnimating()
-                self.performSegue(withIdentifier: "loginToMap", sender: nil)
-            }else {
-                self.pbLoginOutlet.isHidden = true
-                self.pbLoginOutlet.stopAnimating()
-                let alertController = UIAlertController(title: "Error", message: "An error has ocurred during login process, please try again!", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
-                self.present(alertController, animated: true, completion: nil)
+        if (isValidEmail(email: loginEmailOutlet.text!)){
+            if let email = loginEmailOutlet.text , let password = loginPasswordOutlet.text {
+                Auth.auth().signIn(withEmail: email, password: password){
+                (result, error) in
+                if let result = result, error == nil {
+                    self.pbLoginOutlet.isHidden = true
+                    self.pbLoginOutlet.stopAnimating()
+                    self.performSegue(withIdentifier: "loginToMap", sender: nil)
+                }else {
+                    self.pbLoginOutlet.isHidden = true
+                    self.pbLoginOutlet.stopAnimating()
+                    self.genericAlert(message: "An error has ocurred during login process, please try again!")
+                    }
+                }
             }
+        } else {
+            self.genericAlert(message: "Invalid Email")
         }
-    }
+
 }
 }

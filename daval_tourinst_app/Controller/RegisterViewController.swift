@@ -27,21 +27,29 @@ class RegisterViewController: UIViewController {
     @IBAction func regiterToMapAction(_ sender: Any) {
         pbRegisterOutlet.isHidden = false
         pbRegisterOutlet.startAnimating()
-        if let email = registerEmailOutlet.text , let password = registerPasswordOutlet.text {
-            Auth.auth().createUser(withEmail: email, password: password) {
-                (result, error) in
-            if let result = result, error == nil {
-                self.pbRegisterOutlet.isHidden = true
-                self.pbRegisterOutlet.stopAnimating()
-                self.performSegue(withIdentifier: "registerToMap", sender: nil)
-            }else {
-                self.pbRegisterOutlet.isHidden = true
-                self.pbRegisterOutlet.stopAnimating()
-                let alertController = UIAlertController(title: "Error", message: "Se ha producido un error registrando el usuario", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
-                self.present(alertController, animated: true, completion: nil)
+        if (isValidEmail(email: registerEmailOutlet.text!)){
+            if(isValidPassword(password: registerPasswordOutlet.text!)) {
+            if let email = registerEmailOutlet.text , let password = registerPasswordOutlet.text {
+                Auth.auth().createUser(withEmail: email, password: password) {
+                    (result, error) in
+                if let result = result, error == nil {
+                    self.pbRegisterOutlet.isHidden = true
+                    self.pbRegisterOutlet.stopAnimating()
+                    self.performSegue(withIdentifier: "registerToMap", sender: nil)
+                }else {
+                    self.pbRegisterOutlet.isHidden = true
+                    self.pbRegisterOutlet.stopAnimating()
+                    let alertController = UIAlertController(title: "Error", message: "Se ha producido un error registrando el usuario", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
                 }
+            } else {
+                self.genericAlert(message: "Invalid Password")
             }
-        }
+            } else {
+                self.genericAlert(message: "Invalid Email")
+            }
     }
 }

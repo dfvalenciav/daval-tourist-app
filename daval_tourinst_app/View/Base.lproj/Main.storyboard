@@ -9,49 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="daval_tourinst_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RKR-Jh-Bic">
-                                <rect key="frame" x="29" y="157" width="272" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKL-xY-S5R">
-                                <rect key="frame" x="90" y="300" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="LoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jmb-sm-1gS"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wy1-ur-DHG">
-                                <rect key="frame" x="20" y="44" width="241" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="emailOtlet" destination="Wy1-ur-DHG" id="huP-7p-E0b"/>
-                        <outlet property="passwordoOutlet" destination="RKR-Jh-Bic" id="fuu-fW-GRB"/>
-                        <segue destination="zjN-OV-1zL" kind="show" id="wFN-Dh-XRb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-196" y="-534"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="wEU-V3-ocA">
             <objects>
@@ -426,12 +383,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5UM-qF-Xia" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="210"/>
+            <point key="canvasLocation" x="-26" y="218"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2en-ad-w0i"/>
-        <segue reference="nWL-xp-OF5"/>
+        <segue reference="pQS-cT-RNL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchIcon" width="974" height="1258"/>
