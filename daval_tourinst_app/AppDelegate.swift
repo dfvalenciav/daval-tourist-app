@@ -8,13 +8,14 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    let dataController = DataController(modelName: "daval_tourinst_app")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        dataController.load()
         FirebaseApp.configure()
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 1)
