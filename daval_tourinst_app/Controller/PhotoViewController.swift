@@ -25,7 +25,6 @@ class PhotoViewController : UIViewController{
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     // MARK: - Properties
     
     var pin: Pin!
@@ -42,21 +41,47 @@ class PhotoViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         mapView.delegate = self
-        
         setupCollectionView()
         setupFlowLayout()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
+        setupData()
+        noPhotosFoundLabel.isHidden = false
+        
+        setCenterRegion(coordinate: selectedLocation.coordinate)
+        addPin(coordinate: selectedLocation.coordinate)
+        
+        
+        fetchedResultsController = nil
+        DataModel.photosData = []
+        photosInfo = []
+        
+        collectionView.reloadData()
+        
+        self.dataController.viewContext.performAndWait{
+            let pinToDeletePhotos = dataController.viewContext.object(with: self.pin.objectID) as! Pin
+            pinToDeletePhotos.photos = []
+            try? dataController.viewContext.save()
+        }
+        
+        setupData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        activityIndicator.startAnimating()
         setupData()
-        noPhotosFoundLabel.isHidden = true
+        noPhotosFoundLabel.isHidden = false
         
         setCenterRegion(coordinate: selectedLocation.coordinate)
         addPin(coordinate: selectedLocation.coordinate)
     }
+    
     
     
     //  MARK: - Initialization Functions
@@ -316,3 +341,4 @@ extension PhotoViewController: NSFetchedResultsControllerDelegate {
         })
     }
 }
+

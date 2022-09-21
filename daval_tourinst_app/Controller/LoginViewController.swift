@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginToMapAction(_ sender: Any) {
         pbLoginOutlet.isHidden = false
         pbLoginOutlet.startAnimating()
-        if (isValidEmail(email: loginEmailOutlet.text!)){
+        if (isValidEmail(email: loginEmailOutlet.text ?? "")){
             if let email = loginEmailOutlet.text , let password = loginPasswordOutlet.text {
                 Auth.auth().signIn(withEmail: email, password: password){
                 (result, error) in
@@ -44,13 +44,45 @@ class LoginViewController: UIViewController {
                 }else {
                     self.pbLoginOutlet.isHidden = true
                     self.pbLoginOutlet.stopAnimating()
-                    self.genericAlert(message: "An error has ocurred during login process, please try again!")
+                    self.genericAlert(message: error!.localizedDescription as String)
                     }
                 }
             }
         } else {
+            self.pbLoginOutlet.isHidden = true
+            self.pbLoginOutlet.stopAnimating()
             self.genericAlert(message: "Invalid Email")
         }
 
-}
+    }
+    
+    func subscribeToKeyboardNotifications() {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+        
+    func unsubscribeFromKeyboardNotifications() {
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if (loginEmailOutlet.isFirstResponder || loginPasswordOutlet.isFirstResponder){
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(_notification: Notification) {
+        if loginEmailOutlet.isEditing, loginEmailOutlet.isEditing, view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
+    }
+
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
 }

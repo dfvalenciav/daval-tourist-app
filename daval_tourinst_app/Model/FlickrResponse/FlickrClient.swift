@@ -50,10 +50,7 @@ class FlickrClient {
                     completion(result.photos.photo, nil)
                 }
             } catch {
-                print("Error in decoding photos list: \(error)")
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                DispatchQueue.main.async { completion([], error)}
             }
         }
         
