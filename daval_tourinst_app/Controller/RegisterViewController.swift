@@ -11,7 +11,7 @@ import FirebaseAuth
 
 
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var registerEmailOutlet: UITextField!
@@ -21,9 +21,24 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pbRegisterOutlet.isHidden = true
+        self.registerEmailOutlet.delegate = self
+        self.registerPasswordOutlet.delegate = self
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    @IBAction func signInAction(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+       /* let memeEditorViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.present(memeEditorViewController, animated: true)*/
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.frame.origin.y = 0
+        return true
+    }
+    
     @IBAction func regiterToMapAction(_ sender: Any) {
         pbRegisterOutlet.isHidden = false
         pbRegisterOutlet.startAnimating()

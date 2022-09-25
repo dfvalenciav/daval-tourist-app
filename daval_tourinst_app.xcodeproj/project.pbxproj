@@ -22,6 +22,7 @@
 		140AE60C28D56788008C69DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140AE60B28D56788008C69DE /* LoginViewController.swift */; };
 		140AE60E28D56805008C69DE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140AE60D28D56805008C69DE /* RegisterViewController.swift */; };
 		140AE61028D56967008C69DE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140AE60F28D56967008C69DE /* MapViewController.swift */; };
+		14283CED28E0984B007A54C5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14283CEC28E0984B007A54C5 /* NetworkManager.swift */; };
 		143C8FD628D16EB40035FFB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 143C8FD528D16EB40035FFB9 /* GoogleService-Info.plist */; };
 		1456C1E028CE489B00BDE878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1DF28CE489B00BDE878 /* AppDelegate.swift */; };
 		1456C1E228CE489B00BDE878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C1E128CE489B00BDE878 /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 		140AE60B28D56788008C69DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		140AE60D28D56805008C69DE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		140AE60F28D56967008C69DE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		14283CEC28E0984B007A54C5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		143C8FD528D16EB40035FFB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1456C1DC28CE489B00BDE878 /* daval_tourinst_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = daval_tourinst_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1456C1DF28CE489B00BDE878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				14070EC728D74D420058DFAC /* PhotoViewController.swift */,
 				14070EC928D74D720058DFAC /* PhotoCellViewController.swift */,
 				14070ECB28D754CE0058DFAC /* ViewControllerExtension.swift */,
+				14283CEC28E0984B007A54C5 /* NetworkManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				14070EC228D74AE40058DFAC /* FlickrResponse.swift in Sources */,
 				14070ECA28D74D720058DFAC /* PhotoCellViewController.swift in Sources */,
 				14070EC428D74B290058DFAC /* FlickrClient.swift in Sources */,
+				14283CED28E0984B007A54C5 /* NetworkManager.swift in Sources */,
 				14070EBD28D745F60058DFAC /* Photo.swift in Sources */,
 				140AE60C28D56788008C69DE /* LoginViewController.swift in Sources */,
 				14070EC828D74D420058DFAC /* PhotoViewController.swift in Sources */,

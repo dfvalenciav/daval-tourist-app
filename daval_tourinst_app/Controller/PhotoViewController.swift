@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 import MapKit
 import CoreData
+import FirebaseAuth
+import Reachability
 
 
 
-class PhotoViewController : UIViewController{
+class PhotoViewController : UIViewController {
     
     
     // MARK: - Outlets
@@ -31,6 +33,9 @@ class PhotoViewController : UIViewController{
     var selectedLocation: CLLocation!
     var dataController : DataController = (UIApplication.shared.delegate as! AppDelegate).dataController
     
+    let network: NetworkManager = NetworkManager.sharedInstance
+    let reachability = try! Reachability()
+    
     private var shouldDownload = true
     private var photosInfo = [FlickrReponse]()
     private var blockOperations = [BlockOperation]()
@@ -45,7 +50,60 @@ class PhotoViewController : UIViewController{
         mapView.delegate = self
         setupCollectionView()
         setupFlowLayout()
+        //networkConnectionCheck ()
+        /*NetworkManager.isUnreachable { _ in
+            self.showOfflinePage()
+        }
+        NetworkManager.isReachable { _ in
+            self.showMainPage()
+        }*/
         
+        /*network.reachability.whenUnreachable = { reachability in
+            self.showOfflinePage()
+        }*/
+        
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            
+            print("error")
+        }
+    }
+    
+    private func showOfflinePage() -> Void {
+        DispatchQueue.main.async {
+           // self.activityIndicator.stopAnimating()
+            //self.alertError(title: "Error Network", message: "Network error connection. Please try again !")
+            print("no internet")
+        }
+    }
+    
+    private func showMainPage() -> Void {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
+    
+    @IBAction func backAction(_ sender: Any) {
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        self.present(mapViewController, animated: true)
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.present(loginViewController, animated: true)
+            print("Session closed")
+        }catch{
+            print("Error while signing out!")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -173,11 +231,13 @@ class PhotoViewController : UIViewController{
     
     private func handleGetPhotosList(photosInfo: [FlickrReponse], error: Error?) {
         self.noPhotosFoundLabel.isHidden = photosInfo.count > 0
-        
+        activityIndicator.stopAnimating()
         if let error = error {
-            self.alertError(title: "Error in fetching photos", message: "\(error.localizedDescription)")
+            activityIndicator.stopAnimating()
+            self.alertError(title: "Error in fetching photos", message: error.localizedDescription)
         }
         activityIndicator.stopAnimating()
+        //self.alertError(title: "Error in fetching photos", message: "\(error!.localizedDescription)")
         self.photosInfo = photosInfo
         collectionView.reloadData()
         setDownloadingState(isDownloading: false)

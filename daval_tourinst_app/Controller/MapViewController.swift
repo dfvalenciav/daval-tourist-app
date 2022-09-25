@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreData
+import FirebaseAuth
 
 class MapViewController: UIViewController {
 
@@ -27,6 +28,19 @@ class MapViewController: UIViewController {
         mapView.isZoomEnabled = true
         mapView.delegate = self
     }
+    
+
+    @IBAction func logoutAction(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+            let memeEditorViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.present(memeEditorViewController, animated: true)
+            print("Session closed")
+        }catch{
+            print("Error while signing out!")
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -8,4 +8,5 @@ target 'daval_tourinst_app' do
   # Pods for daval_tourinst_app
 	pod 'FirebaseAnalytics'
 	pod 'FirebaseAuth'
+	pod 'ReachabilitySwift'
 end

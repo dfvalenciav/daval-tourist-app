@@ -42,6 +42,12 @@ class FlickrClient {
         let page = getRandomPageNumber()
         let task = URLSession.shared.dataTask(with: EndPoints.search(latitude: lat, longitude: lon, page: page).url) { (data, response, error) in
             guard let data = data else { return }
+            guard let httpResponse = response as? HTTPURLResponse,
+                  case 200...299 = httpResponse.statusCode
+            else {
+                print("Nerwork connection")
+                return
+            }
             
             do {
                 let result = try JSONDecoder().decode(PhotosInfoResponse.self, from: data)

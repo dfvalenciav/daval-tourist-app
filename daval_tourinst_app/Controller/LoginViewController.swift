@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
 
@@ -22,11 +22,18 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pbLoginOutlet.isHidden = true
+        self.loginEmailOutlet.delegate = self
+        self.loginPasswordOutlet.delegate = self
         // Do any additional setup after loading the view.
     }
 
     @IBAction func loginToRegisterAction(_ sender: Any) {
         performSegue(withIdentifier: "loginToRegister", sender: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.frame.origin.y = 0
+        return true
     }
     
     

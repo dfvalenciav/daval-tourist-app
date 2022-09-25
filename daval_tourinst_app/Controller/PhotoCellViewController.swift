@@ -16,6 +16,7 @@ class PhotoCellViewController: UICollectionViewCell {
     var dataController: DataController!
     var id: UUID? = nil
     
+    
     func configure() {
         self.imageCell.image = nil
         self.imageCell.contentMode = .scaleAspectFill

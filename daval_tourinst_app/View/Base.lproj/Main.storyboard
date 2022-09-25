@@ -74,6 +74,19 @@
                                     <constraint firstAttribute="width" constant="40" id="nv8-I9-VlB"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UET-8I-9KH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="REGISTER" id="VRO-kf-2tM">
+                                        <barButtonItem key="rightBarButtonItem" title="SIGN IN" id="MuY-Fa-8ao">
+                                            <connections>
+                                                <action selector="signInAction:" destination="zjN-OV-1zL" id="yIK-Xd-zCG"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="glf-iJ-9en"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,29 +116,42 @@
                             <constraint firstItem="Ut7-wT-Prm" firstAttribute="leading" secondItem="glf-iJ-9en" secondAttribute="leading" constant="15" id="ywI-80-82H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eRF-iG-3px"/>
+                    <navigationItem key="navigationItem" id="25F-et-DoM"/>
                     <connections>
                         <outlet property="pbRegisterOutlet" destination="tnk-as-gHX" id="936-fO-xUQ"/>
                         <outlet property="registerEmailOutlet" destination="Ark-Ty-eHJ" id="srz-E5-dmr"/>
                         <outlet property="registerPasswordOutlet" destination="Hz7-eJ-Olw" id="3D9-tB-l1m"/>
-                        <segue destination="Ofz-AX-nQm" kind="presentation" identifier="registerToMap" id="2en-ad-w0i"/>
+                        <segue destination="Ofz-AX-nQm" kind="show" identifier="registerToMap" id="egz-L7-jJl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iva-vZ-EEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="-252"/>
+            <point key="canvasLocation" x="1925" y="1333"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="dcW-2T-BLG">
             <objects>
-                <viewController id="Ofz-AX-nQm" customClass="MapViewController" customModule="daval_tourinst_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ofz-AX-nQm" customClass="MapViewController" customModule="daval_tourinst_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QhI-TF-Vvg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pa0-fb-G3q">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="793"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpL-8d-wqm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="YOUR PLACES" id="iMb-tp-vVL">
+                                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="mmW-jz-Ny8">
+                                            <connections>
+                                                <action selector="logoutAction:" destination="Ofz-AX-nQm" id="m7T-wK-noa"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uBY-5M-wV0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -136,7 +162,9 @@
                             <constraint firstItem="Pa0-fb-G3q" firstAttribute="leading" secondItem="uBY-5M-wV0" secondAttribute="leading" id="qbX-Nt-axp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T0N-ux-veN"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YX1-77-B8T"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="Pa0-fb-G3q" id="cZf-Cs-vvL"/>
                         <segue destination="hoF-yc-baZ" kind="presentation" identifier="mapToPhotoMap" id="tPf-z5-jSh"/>
@@ -144,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bW-We-pDA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536" y="218"/>
+            <point key="canvasLocation" x="1964" y="212"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="sr1-Rr-R4n">
@@ -233,6 +261,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KKF-ug-siC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="YOUR IMAGES" id="9Hl-EP-Kon">
+                                        <barButtonItem key="leftBarButtonItem" title="BACK" id="Kfo-Xb-2bk">
+                                            <connections>
+                                                <action selector="backAction:" destination="hoF-yc-baZ" id="8Su-Rq-Vlu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="35M-Zh-RXX">
+                                            <connections>
+                                                <action selector="logoutAction:" destination="hoF-yc-baZ" id="N7l-o5-HqB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8i8-Kn-ffy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -266,12 +312,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aY8-mS-uqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3743" y="218"/>
+            <point key="canvasLocation" x="3459" y="212"/>
         </scene>
-        <!--Login View Controller-->
+        <!--LoginViewController-->
         <scene sceneID="JKC-0f-YJs">
             <objects>
-                <viewController id="ggb-v9-Pw2" customClass="LoginViewController" customModule="daval_tourinst_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ggb-v9-Pw2" customClass="LoginViewController" customModule="daval_tourinst_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YnK-QB-a8k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,17 +423,17 @@
                         <outlet property="loginEmailOutlet" destination="ssf-OE-zN5" id="uPv-gZ-9U0"/>
                         <outlet property="loginPasswordOutlet" destination="G97-zO-Rqk" id="gON-CW-v8k"/>
                         <outlet property="pbLoginOutlet" destination="sJh-Ac-D6m" id="DNI-tK-VGB"/>
-                        <segue destination="Ofz-AX-nQm" kind="presentation" identifier="loginToMap" id="pQS-cT-RNL"/>
-                        <segue destination="zjN-OV-1zL" kind="showDetail" identifier="loginToRegister" id="a1g-38-l8q"/>
+                        <segue destination="zjN-OV-1zL" kind="show" identifier="loginToRegister" id="N8D-ls-xxl"/>
+                        <segue destination="Ofz-AX-nQm" kind="show" identifier="loginToMap" id="ExW-Vs-za8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5UM-qF-Xia" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="117"/>
+            <point key="canvasLocation" x="-1333" y="437"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pQS-cT-RNL"/>
+        <segue reference="ExW-Vs-za8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchIcon" width="974" height="1258"/>
