@@ -308,11 +308,12 @@
                         <outlet property="mapView" destination="6g7-Cn-wHO" id="nzt-Yw-DUt"/>
                         <outlet property="newCollectionButton" destination="fMn-hi-Pu0" id="lfM-iV-75Q"/>
                         <outlet property="noPhotosFoundLabel" destination="gou-w2-hba" id="J5y-T1-TS2"/>
+                        <segue destination="ggb-v9-Pw2" kind="show" identifier="photoToSignIn" id="bRL-Xs-3Ra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aY8-mS-uqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3459" y="212"/>
+            <point key="canvasLocation" x="3420" y="212"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="JKC-0f-YJs">
@@ -357,7 +358,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZc-HY-FbZ">
-                                <rect key="frame" x="15" y="811" width="384" height="35"/>
+                                <rect key="frame" x="15" y="791" width="384" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="LOGIN">
                                     <fontDescription key="titleFontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
@@ -381,7 +382,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-Ac-D6m">
-                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <rect key="frame" x="187" y="401" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sJh-Ac-D6m" secondAttribute="height" multiplier="1:1" id="FXT-qh-nrY"/>
                                     <constraint firstAttribute="width" constant="40" id="IIf-HZ-Jfe"/>
@@ -419,6 +420,7 @@
                             <constraint firstItem="VI0-b3-gbq" firstAttribute="leading" secondItem="gdT-6V-b2e" secondAttribute="leading" constant="15" id="yIg-g6-638"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sgd-Ri-Bfc"/>
                     <connections>
                         <outlet property="loginEmailOutlet" destination="ssf-OE-zN5" id="uPv-gZ-9U0"/>
                         <outlet property="loginPasswordOutlet" destination="G97-zO-Rqk" id="gON-CW-v8k"/>

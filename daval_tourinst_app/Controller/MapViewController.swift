@@ -34,7 +34,7 @@ class MapViewController: UIViewController {
         do{
             try Auth.auth().signOut()
             let memeEditorViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.present(memeEditorViewController, animated: true)
+            dismiss(animated: true)
             print("Session closed")
         }catch{
             print("Error while signing out!")

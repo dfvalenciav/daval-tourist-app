@@ -30,8 +30,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signInAction(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
-       /* let memeEditorViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.present(memeEditorViewController, animated: true)*/
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

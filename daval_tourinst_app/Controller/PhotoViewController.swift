@@ -71,16 +71,15 @@ class PhotoViewController : UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        self.present(mapViewController, animated: true)
-        dismiss(animated: true)
-    }
+        self.dismiss(animated: true)    }
     
     @IBAction func logoutAction(_ sender: Any) {
         do{
             try Auth.auth().signOut()
-            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.present(loginViewController, animated: true)
-            dismiss(animated: true)
+            dismiss(animated: true){
+                let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.present(loginViewController, animated: true)
+            }
             print("Session closed")
         }catch{
             print("Error while signing out!")
