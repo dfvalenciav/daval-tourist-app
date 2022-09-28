@@ -60,6 +60,7 @@ class PhotoViewController : UIViewController {
             } else {
                 self.alertError(title: "Network Error", message: "Some time out or other problem with internet connection. Please try again!")
                 print("No connection.")
+                self.activityIndicator.isHidden = true
             }
 
             print(path.isExpensive)
@@ -71,6 +72,7 @@ class PhotoViewController : UIViewController {
     @IBAction func backAction(_ sender: Any) {
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
         self.present(mapViewController, animated: true)
+        dismiss(animated: true)
     }
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -78,6 +80,7 @@ class PhotoViewController : UIViewController {
             try Auth.auth().signOut()
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.present(loginViewController, animated: true)
+            dismiss(animated: true)
             print("Session closed")
         }catch{
             print("Error while signing out!")
@@ -213,7 +216,7 @@ class PhotoViewController : UIViewController {
         
         activityIndicator.stopAnimating()
         if let error = error {
-            activityIndicator.stopAnimating()
+            activityIndicator.hidesWhenStopped = true
             self.alertError(title: "Error in fetching photos", message: error.localizedDescription)
         }
         activityIndicator.stopAnimating()
